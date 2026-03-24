@@ -1,0 +1,83 @@
+body {
+  font-family: Arial, sans-serif;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #f4f7fb;
+  color: #222;
+}
+
+h1, h2 {
+  color: #1d3557;
+  margin-top: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #0b6efd;
+  margin-right: 10px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  margin-bottom: 20px;
+}
+
+form {
+  margin-top: 10px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+button {
+  background: #1d3557;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #16324f;
+}
+
+.error {
+  color: #b00020;
+  font-weight: bold;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  background: #1d3557;
+  color: white;
+}
+
+td, th {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+.error {
+  color: #b00020;
+  font-weight: bold;
+}

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SecureAuth App</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <h1>SecureAuth App</h1>
+  <p>A simple secure authentication demo.</p>
+
+  <% if (user) { %>
+    <p>Welcome, <%= user.username %></p>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/logout">Logout</a>
+  <% } else { %>
+    <a href="/register">Register</a>
+    <a href="/login">Login</a>
+  <% } %>
+</body>
+</html>
