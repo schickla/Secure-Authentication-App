@@ -161,19 +161,20 @@ app.post('/login', authLimiter, async (req, res) => {
 // Dashboard
 app.get('/dashboard', requireAuth, (req, res) => {
   const attempts = db.prepare(`
-    SELECT username, ip_address, success, timestamp
-    FROM login_attempts
-    ORDER BY timestamp DESC
-    LIMIT 20
-  `).all();
+  SELECT username, ip_address, success, timestamp
+  FROM login_attempts
+  WHERE username = ?
+  ORDER BY timestamp DESC
+  LIMIT 20
+`).all(req.session.user.username);
 
   const stats = db.prepare(`
-    SELECT
-      SUM(CASE WHEN success = 1 THEN 1 ELSE 0 END) AS successful,
-      SUM(CASE WHEN success = 0 THEN 1 ELSE 0 END) AS failed
-    FROM login_attempts
-  `).get();
-
+  SELECT
+    SUM(CASE WHEN success = 1 THEN 1 ELSE 0 END) AS successful,
+    SUM(CASE WHEN success = 0 THEN 1 ELSE 0 END) AS failed
+  FROM login_attempts
+  WHERE username = ?
+`).get(req.session.user.username);
   res.render('dashboard', {
     user: req.session.user,
     attempts,
